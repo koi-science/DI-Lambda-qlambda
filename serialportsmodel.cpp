@@ -17,9 +17,6 @@ int SerialPortsModel::columnCount(const QModelIndex & /*parent */) const
 
 int SerialPortsModel::rowCount(const QModelIndex & /*parent */) const
 {
-//    qDebug() << "length = " << ports_list.length();
- //   qDebug() << "size = " << ports_list.size();
-
     return ports_list.length();
 }
 
@@ -27,21 +24,12 @@ void SerialPortsModel::timerHit()
 {
     int old_row_count = rowCount();
 
- //   this->beginResetModel();
     ports_list = QSerialPortInfo::availablePorts();
-
-
-//    qDebug() << "Hello!";
-//    qDebug() << ports_list.length();
-
 
     QModelIndex topLeft = createIndex(0,0);
     QModelIndex bottomRight = createIndex(qMax(ports_list.size(), old_row_count),0);
-//    this->resetInternalData();
+
     emit dataChanged(topLeft, bottomRight);
-
-//    this->endResetModel();
-
 }
 
 QVariant SerialPortsModel::data(const QModelIndex &index, int role) const
