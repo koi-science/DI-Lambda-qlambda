@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 #include <QWidget>
-#include "serialportsmodel.h"
+#include "usbhiddevicesmodel.h"
 #include "dilambda.h"
 
 
@@ -49,7 +49,7 @@ private:
 
     Ui::MainWindow *ui;
 
-    SerialPortsModel *serial_ports_model;
+    UsbHidDevicesModel devices_model;
     DiLambda *dilambda;
 
     float blanks[3];

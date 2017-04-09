@@ -3,18 +3,21 @@
 
 #include <QMessageBox>
 #include <QTime>
+#include <QDebug>
 #include <math.h>
 
-MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::MainWindow)
+MainWindow::MainWindow(QWidget *parent)
+    : QMainWindow(parent)
+    , ui(new Ui::MainWindow)
+    , devices_model()
 {
     ui->setupUi(this);
     ui->pushButton_disconnect->hide();
 
     //ui->tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
-    serial_ports_model = new SerialPortsModel();
-    ui->comboBox->setModel(serial_ports_model);
+//    serial_ports_model = new SerialPortsModel();
+
+    ui->comboBox->setModel(&devices_model);
 
     dilambda = new DiLambda();
 
