@@ -59,12 +59,13 @@ MainWindow::MainWindow(QWidget *parent)
 
 void MainWindow::connect_button_pressed()
 {
-    QString port_name = ui->comboBox->currentText();
+    //QString port_name = ui->comboBox->currentText();
+    HidDevice hid_dev = ui->comboBox->currentData(Qt::UserRole).value<HidDevice>();
 
     ui->comboBox->setEnabled(false);
     //    ui->pushButton_connect->setEnabled(false);
     ui->statusBar->showMessage("Connecting...");
-    dilambda->start_connect(port_name);
+    dilambda->start_connect_hid(hid_dev);
 }
 
 void MainWindow::disconnect_button_pressed()

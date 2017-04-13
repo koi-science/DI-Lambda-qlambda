@@ -12,7 +12,7 @@ TARGET = qlambda
 TEMPLATE = app
 
 linux {
-    LIBS += -lhidapi-hidraw
+    LIBS += -lhidapi-libusb
 }
 
 SOURCES += main.cpp\
