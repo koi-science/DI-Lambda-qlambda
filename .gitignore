@@ -1,0 +1,7 @@
+*.o
+moc_*
+ui_*
+Makefile
+qlambda.pro.user
+.qmake.stash
+qlambda

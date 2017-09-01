@@ -3,21 +3,21 @@
 
 #include <QMessageBox>
 #include <QTime>
+#include <QDebug>
 #include <math.h>
 
-MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::MainWindow)
+MainWindow::MainWindow(QWidget *parent)
+    : QMainWindow(parent)
+    , ui(new Ui::MainWindow)
+    , devices_model()
 {
-
-    //    form = new Form;
-    //    form->show();
     ui->setupUi(this);
     ui->pushButton_disconnect->hide();
 
     //ui->tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
-    serial_ports_model = new SerialPortsModel();
-    ui->comboBox->setModel(serial_ports_model);
+//    serial_ports_model = new SerialPortsModel();
+
+    ui->comboBox->setModel(&devices_model);
 
     dilambda = new DiLambda();
 
@@ -59,18 +59,17 @@ MainWindow::MainWindow(QWidget *parent) :
 
 void MainWindow::connect_button_pressed()
 {
-    QString port_name = ui->comboBox->currentText();
+    //QString port_name = ui->comboBox->currentText();
+    HidDevice hid_dev = ui->comboBox->currentData(Qt::UserRole).value<HidDevice>();
 
     ui->comboBox->setEnabled(false);
     //    ui->pushButton_connect->setEnabled(false);
     ui->statusBar->showMessage("Connecting...");
-    dilambda->start_connect(port_name);
-
+    dilambda->start_connect_hid(hid_dev);
 }
 
 void MainWindow::disconnect_button_pressed()
 {
-
     ui->statusBar->showMessage("Disconnecting...");
     dilambda->start_disconnect();
 }
@@ -162,7 +161,6 @@ void MainWindow::update_labels()
 
 void MainWindow::dilambda_new_sample(QList<int> data)
 {
-
     qDebug() << "dilambda_new_sample" << data[0] << data[1] << data[2];
     for (int i = 0; i < 3; i++) {
         if (blank_needed[i]) {
@@ -173,8 +171,6 @@ void MainWindow::dilambda_new_sample(QList<int> data)
     }
 
     update_labels();
-
-
 }
 
 void MainWindow::take_blank1()
@@ -206,7 +202,6 @@ void MainWindow::insert_sample(int i)
     QTime timestamp = QTime::currentTime();
 
     ui->tableWidget->setItem(row, 4, new QTableWidgetItem(timestamp.toString()));
-
 }
 
 void MainWindow::take_sample1()

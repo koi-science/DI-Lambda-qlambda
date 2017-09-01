@@ -12,6 +12,9 @@ DiLambda::DiLambda(QObject *parent) :
 {
     connect(&current_port, SIGNAL(readyRead()), this, SLOT(data_available()));
     connect(&current_port, SIGNAL(error(QSerialPort::SerialPortError)), this, SLOT(serial_port_error(QSerialPort::SerialPortError)));
+
+    connect(&usbhid_loop, SIGNAL(dataReceived(const QByteArray&)), this, SLOT(hid_data_recv(const QByteArray&)));
+    usbhid_loop.start();
 }
 
 void DiLambda::start_connect(QString port_name)
@@ -73,4 +76,15 @@ void DiLambda::serial_port_error(QSerialPort::SerialPortError err)
         qDebug() << "Serial port error " + current_port.errorString() + ":" + current_port.error();
         emit serial_connection_failure(current_port.errorString());
     }
+}
+
+
+void DiLambda::hid_data_recv(const QByteArray& data)
+{
+    qDebug() << "Usb HID data: " << data;
+}
+
+void DiLambda::start_connect_hid(HidDevice dev)
+{
+    usbhid_loop.connect(dev);
 }

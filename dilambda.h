@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QSerialPort>
 #include <QSerialPortInfo>
+#include "usbhiddevicesmodel.h"
 
 class DiLambda : public QObject
 {
@@ -13,6 +14,7 @@ public:
 
 private:
     QSerialPort current_port;
+    UsbHidPollLoop usbhid_loop;
 
 signals:
     void new_sample(QList<int> data);
@@ -24,9 +26,13 @@ public slots:
     void start_connect(QString port_name);
     void start_disconnect();
 
+    void start_connect_hid(HidDevice);
+
 private slots:
     void data_available();
     void serial_port_error(QSerialPort::SerialPortError);
+
+    void hid_data_recv(const QByteArray&);
 };
 
 #endif // DILAMBDA_H
