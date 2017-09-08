@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=QLambda
+Comment=DI-Lambda software
+Exec=qlambda
+Type=Application
+Icon=qlambda
