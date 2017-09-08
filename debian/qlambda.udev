@@ -1,0 +1,5 @@
+
+#DI-Lambda: Don't let the Modem Manager interfere, let everyone access the file.
+
+ATTRS{idVendor}=="1209" ATTRS{idProduct}=="d11d", ENV{ID_MM_DEVICE_IGNORE}="1"  MODE="666"
+

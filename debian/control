@@ -1,0 +1,15 @@
+Source: qlambda
+Maintainer: Alexey Zaytsev <alex@koi.science>
+Section: misc
+Priority: optional
+Standards-Version: 3.9.2
+Build-Depends: debhelper (>= 9)
+Homepage: https://koi.science/software/qlambda
+Vcs-Git: https://github.com/koi-science/DI-Lambda-qlambda.git
+Vcs-Browser: https://github.com/koi-science/DI-Lambda-qlambda
+
+Package: qlambda
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libc6 (>= 2.14), libgcc1 (>= 1:3.0), libqt5core5a (>= 5.5.0), libqt5gui5 (>= 5.0.2) | libqt5gui5-gles (>= 5.0.2), libqt5serialport5 (>= 5.1.0), libqt5widgets5 (>= 5.2.0), libstdc++6 (>= 4.1.1)
+Description: DI-Lambda Spectrophotomter software
+ Lets you take measurements with a DI-Lambda spectrophotometer.
