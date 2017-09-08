@@ -226,5 +226,6 @@ void MainWindow::take_sample3()
 
 MainWindow::~MainWindow()
 {
+    dilambda->start_disconnect();
     delete ui;
 }
