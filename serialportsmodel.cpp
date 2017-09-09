@@ -53,7 +53,9 @@ QVariant SerialPortsModel::data(const QModelIndex &index, int role) const
     if (role == Qt::DisplayRole)
     {
         if (col == 0 and row < ports_list.length()) {
-                return ports_list.at(row).portName();
+                return ports_list.at(row).portName() + " - " + \
+                        ports_list.at(row).description() + " (" + \
+                        ports_list.at(row).manufacturer() + ")";
         }
     }
     return QVariant();
