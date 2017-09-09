@@ -30,6 +30,9 @@ void DiLambda::start_connect(QString port_name)
     if (current_port.open(QIODevice::ReadWrite)) {
         emit serial_connected(port_name);
 
+    current_port.setDataTerminalReady(true);
+
+    } else {
         qDebug() << "Serial port error " << current_port.errorString() << ":" << current_port.error();
     }
 }
