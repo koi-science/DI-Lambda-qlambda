@@ -3,7 +3,7 @@ Maintainer: Alexey Zaytsev <alex@koi.science>
 Section: misc
 Priority: optional
 Standards-Version: 3.9.2
-Build-Depends: debhelper (>= 9)
+Build-Depends: debhelper (>= 9), cdbs, qt5-qmake, qtbase5-dev, qtbase5-dev-tools, libqt5serialport5-dev
 Homepage: https://koi.science/software/qlambda
 Vcs-Git: https://github.com/koi-science/DI-Lambda-qlambda.git
 Vcs-Browser: https://github.com/koi-science/DI-Lambda-qlambda
