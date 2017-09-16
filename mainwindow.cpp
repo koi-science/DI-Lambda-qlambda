@@ -59,7 +59,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 void MainWindow::connect_button_pressed()
 {
-    QString port_name = ui->comboBox->currentText();
+    QString port_name = ui->comboBox->currentData(Qt::UserRole).value<QString>();
 
     ui->comboBox->setEnabled(false);
     //    ui->pushButton_connect->setEnabled(false);
