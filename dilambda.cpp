@@ -39,7 +39,8 @@ void DiLambda::start_connect(QString port_name)
 
 void DiLambda::start_disconnect()
 {
-    current_port.close();
+    if (current_port.isOpen())
+        current_port.close();
     emit serial_disconnected();
 }
 
