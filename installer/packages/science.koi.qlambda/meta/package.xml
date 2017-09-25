@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>QLambda</DisplayName>
+    <Name>science.koi.qlambda</Name>
+    <Description>Qlambda application</Description>
+    <Version>0.2</Version>
+    <ReleaseDate>2017-09-25</ReleaseDate>
+    <Default>true</Default>
+    <ForcedInstallation>true</ForcedInstallation>
+    <Script>installscript.qs</Script>
+</Package>

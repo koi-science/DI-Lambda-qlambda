@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Installer>
+    <Name>QLambda</Name>
+    <Version>0.2</Version>
+    <Title>QLambda</Title>
+    <Publisher>Koi Science</Publisher>
+    <StartMenuDir>Koi Science</StartMenuDir>
+    <TargetDir>@ApplicationsDir@/Koi Science/Qlambda</TargetDir>
+    <AllowSpaceInPath>true</AllowSpaceInPath>
+    <WizardStyle>Modern</WizardStyle>
+    <RemoteRepositories>
+        <Repository>
+            <Url>http://koi.science/software/qt-repo-win</Url>
+            <Enabled>1</Enabled>
+            <DisplayName>Koi Science software repository</DisplayName>
+        </Repository>
+    </RemoteRepositories>
+</Installer>
