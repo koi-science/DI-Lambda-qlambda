@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>DI-Lambda driver for Windows XP/Vista/7</DisplayName>
+    <Name>science.koi.driver</Name>
+    <Description>The device driver to communicate with your DI-Lambda</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>2017-10-08</ReleaseDate>
+    <Default>true</Default>
+    <Script>installscript.js</Script>
+
+</Package>
